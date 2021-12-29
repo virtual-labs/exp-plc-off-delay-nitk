@@ -94,7 +94,7 @@ Addressing a timer is as follows: <br>
 </ol>
 
 &#8658; The status bits of the timer can be addressed in the following way:
-<ul type=disc style="text-align: justify;">
+<ul style="text-align: justify;">
 <li>Word zero, bit 13, is the done bit. It is identified as DN.
   This bit is set when the timer’s accumulated value is
    equal to the timer’s preset value. It can be addressed as
@@ -115,7 +115,7 @@ The above figure is used to explain the on-delay timer instruction.<br>
 Here, T4:2 represents timer file 4, timer element 2, preset value is 50, accumulated value is 0 and timer base is 1 second.
 Input module is in slot 1 and output module is in slot 2. <br>
 
-<ul type=disc style="text-align: justify;">
+<ul style="text-align: justify;">
 <li>As long as the instruction I:1/0 is true, the on-delay timer T4:2 will increment every one second toward its preset value
  of 50 seconds. The accumulated value displays the current number of seconds that passed. When the accumulated value
  is equal to the preset value, the timer’s done bit will get energized or set. So when the timer’s done bit gets energized, the
@@ -141,7 +141,7 @@ instruction, no matter the relationship between the preset value and accumulated
 The above figure is used to explain the off-delay timer instruction. Here, T4:2 represents timer file 4, timer element 2,
 preset value is 200, accumulated value is 0 and timer base is 1 second. Input module is in slot 1 and output module is in
  slot 2. <br>
-<ul type=disc style="text-align: justify;">
+<ul style="text-align: justify;">
 <li>As an example, consider an external cooling fan on a motor which has to run all the time when the motor is running and
  also for 200 seconds after the motor is turned off. For this purpose, we use 200- second off-delay timer. The 200-second
  timing cycle begins when the motor is turned off. </li>
