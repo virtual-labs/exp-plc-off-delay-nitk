@@ -79,7 +79,7 @@
       "difficulty": ""
     },
     {
-      "question": "<img src=images/q1.gif' height='130' width='350' /><br>In the figure, _________ is set when the rung 000 becomes true. It will remain set through the true to false transition and until the accumulated value is equal to the preset value.",
+      "question": "<img src='images/q1.gif' height='130' width='350' /><br>In the figure, _________ is set when the rung 000 becomes true. It will remain set through the true to false transition and until the accumulated value is equal to the preset value.",
       "answers": {
         "a": "Timer-timing bit",
         "b": "Timer-enable bit",
