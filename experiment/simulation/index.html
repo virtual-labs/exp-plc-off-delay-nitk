@@ -1,13 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
+<meta charset="UTF-8">
+<title>SOLVE</title>
+<link rel="stylesheet" href="css/offdelay.css" />
+<script type="text/javascript" src="js/offdelay.js"></script>
+<script>
+var simsubscreennum=0;
+var temp=0;
+</script>
 </head>
-<body>
-		<!-- Your code goes here-->
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+<body style="margin:0; font-family:verdana; color:#ffffff;" onload="start(); dispPointer();">
+<div id="simscreen">
+<div id="title"><h3>PLC OFF-DELAY TIMER INSTRUCTION</h3></div>
+
+<div class="simsubscreen">
+	<img style="position:absolute; left:35px; top:30px;" src="images/i1.png" />
+	<img style="position:absolute; left:395px; top:10px;" src="images/counter.png" />
+	<img style="position:absolute; left:32px; top:150px;" src="images/control.png" />
+	<img style="position:absolute; left:50px; top:187px;" src="images/circuit.png" />
+	<img id="mainOn" style="position:absolute; left:69px; top:187px; cursor:pointer;" onclick="stopMotor()"  src="images/switchOn.png" />
+	<img id="mainOff" style="position:absolute; left:68.5px; top:175.25px; cursor:pointer; visibility:hidden;" onclick="initStart()" src="images/switchOff.png" />
+	<img id="pointer" style="position:absolute; left:52px; top:100px; visibility:hidden; " src="images/hp.png" />
+	
+	<img style="position:absolute; left:195px; top:320px; width:175opx; height:150px;" src="images/motor.png" />
+	<img id="arrow" style="position:absolute; left:217px; top:394px; visibility:hidden;" src="images/arrow3.png" />
+	<img style="position:absolute; left:204.5px; top:402.5px; height:15px;" src="images/rotar.png" />
+	
+	<img id="fan1" style="position:absolute; left:40px; top:262.5px;" src="images/fan1.png" />
+	<img id="fan2" style="position:absolute; left:40px; top:262.5px; visibility:hidden;" src="images/fan2.png" /> 
+	
+	<img id="off1" style="position:absolute; left:724.25px; top:50px; width:22.5px; height:22.5px;" src="images/off.png" />
+	<img id="on1" style="position:absolute; left:724.25px; top:50px; width:22.5px; height:22.5px; visibility:hidden;" src="images/on.png" />
+	<img id="off2" style="position:absolute; left:725px; top:102.5px; width:22.5px; height:22.5px; " src="images/off.png" />
+	<img id="on2" style="position:absolute; left:725px; top:102.5px; width:22.5px; height:22.5px; visibility:hidden;" src="images/on.png" />
+	<img id="off3" style="position:absolute; left:718.5px; top:160px; width:22.5px; height:22.5px;" src="images/off.png" />
+	<img id="on3" style="position:absolute; left:718.5px; top:160px; width:22.5px; height:22.5px; visibility:hidden;" src="images/on.png" />
+	<img id="off4" style="position:absolute; left:720.5px; top:204.5px; width:22.5px; height:22.5px; " src="images/off.png" />
+	<img id="on4" style="position:absolute; left:720.5px; top:204.5px; width:22.5px; height:22.5px; visibility:hidden;" src="images/on.png" />
+	<img id="off5" style="position:absolute; left:725px; top:250px; width:22.5px; height:22.5px; " src="images/off.png" />
+	<img id="on5" style="position:absolute; left:725px; top:250px; width:22.5px; height:22.5px; visibility:hidden;" src="images/on.png" />
+	<img id="off6" style="position:absolute; left:724px; top:308px; width:22.5px; height:22.5px;" src="images/off.png" />
+	<img id="on6" style="position:absolute; left:724.5px; top:308px; width:22.5px; height:22.5px; visibility:hidden;" src="images/on.png" />
+	<img id="off7" style="position:absolute; left:724.5px; top:374px; width:22.5px; height:22.5px;" src="images/off.png" />
+	<img id="on7" style="position:absolute; left:724px; top:374px; width:22.5px; height:22.5px; visibility:hidden;" src="images/on.png" />
+	<img id="off8" style="position:absolute; left:724px; top:439px; width:22.5px; height:22px;" src="images/off.png" />
+	<img id="on8" style="position:absolute; left:724px; top:439px; width:22.5px; height:22px; visibility:hidden;" src="images/on.png" />
+	
+	<div id="bit1" style="position:absolute; left:444px; top:30px; padding:2px; background-color:red; color:black; font-size:11px; font-weight:bold;">I:1/0</div>
+	<div id="bit2" style="position:absolute; left:444px; top:82.5px; padding:2px; background-color:red; color:black; font-size:11px; font-weight:bold;">I:1/0</div>
+	<div id="bit3" style="position:absolute; left:444px; top:142.5px; padding:2px; background-color:red; color:black; font-size:11px; font-weight:bold;">I:1/0</div>
+	<div id="bit4" style="position:absolute; left:435px; top:227.5px; padding:2px; background-color:red; color:black; font-size:11px; font-weight:bold;">T4:2/EN</div>
+	<div id="bit5" style="position:absolute; left:435px; top:287.5px; padding:2px; background-color:red; color:black; font-size:11px; font-weight:bold;">T4:2/TT</div>
+	<div id="bit6" style="position:absolute; left:435px; top:352px; padding:2px; background-color:red; color:black; font-size:11px; font-weight:bold;">T4:2/DN</div>
+	<div id="bit7" style="position:absolute; left:435px; top:417.5px; padding:2px; background-color:red; color:black; font-size:11px; font-weight:bold;">T4:2/DN</div>
+	
+	<div id="mon" style="position:absolute; left:145px; top:155px; background-color:#FFFF00; width:20px; height:20px; border-radius:11px; "></div>
+	<div id="moff" style="position:absolute; left:145px; top:178.5px; background-color:#996600; width:20px; height:20px; border-radius:11px; "></div>
+	<div id="fon" style="position:absolute; left:145px; top:202.5px; background-color:#FFFF00; width:20px; height:20px; border-radius:11px; "></div>
+	<div id="foff" style="position:absolute; left:145px; top:227.5px; background-color:#996600; width:20px; height:20px; border-radius:11px; "></div>
+	
+	<p style="position:absolute; left:722px; top:155px; font-size:11px; font-weight:bold;">EN</p>
+	<p style="position:absolute; left:723px; top:198px; font-size:11px; font-weight:bold;">DN</p>
+	<p id="accum" style="position:absolute; left:660px; top:202px; font-size:14.5px;">0</p>
+</div>
+
+<div id="copyright"> &copy; 2020 - <script>document.write(new Date().getFullYear())</script> SOLVE - The Virtual Lab @ NITK Surathkal</div>
+
+</div>
 </body>
 </html>
